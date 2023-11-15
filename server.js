@@ -6,11 +6,15 @@ const dotenv = require("dotenv").config();
 
 const app = express();
 
-const port = process.env.PORT || 5000;
+const port = process.env.PORT;
 
 console.log("CWD: " + process.cwd());
 
-// app.use("/api/contacts" , require("routes/ContactRoutes.js"));
+// app.get('/api/contacts' , (req , res) =>{
+//     res.json({message : "Get all contacts"});
+// })
+
+app.use("/api/contacts" , require("./routes/ContactRoutes"))
 
 app.listen(port, () => {
     console.log(`Server running on port ${port}`);
